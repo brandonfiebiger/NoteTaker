@@ -26,7 +26,6 @@ export class AddNoteForm extends Component {
       this.setState({
         error: true
       });
-      return;
     } else {
       this.props.addNote(content, tag);
     }
