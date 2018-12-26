@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes')
+    fetch(`${process.env.REACT_APP_API_URL}`)
       .then(response => response.json())
       .then(allNotes => {
         this.setState({
@@ -30,7 +30,7 @@ class App extends Component {
   addNote = (content, tag) => {
     let date = new Date();
     date = dateFormat.format(date, 'YYYY-MM-DD');
-    fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes', {
+    fetch(`${process.env.REACT_APP_API_URL}`, {
       method: 'POST',
       body: JSON.stringify({
         content,
