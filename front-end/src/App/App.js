@@ -24,10 +24,23 @@ class App extends Component {
   }
 
 
-  addNote = (content, tag) => {
+  addNote = (Content, Tag) => {
     let now = new Date();
     now = date.format(now, 'YYYY-MM-DD');
-    console.log(now, content, tag);
+    fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes', {
+      method: 'POST',
+      body: JSON.stringify({
+        Content,
+        Tag,
+        "Date": now
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
   }
 
   render() {
