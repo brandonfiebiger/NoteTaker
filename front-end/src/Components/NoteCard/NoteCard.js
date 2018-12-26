@@ -3,8 +3,8 @@ import React from 'react';
 export const NoteCard = props => (
 
   <li>
-    <p>{props.Date}</p>
-    <p>{props.Tag}</p>
-    <p>{props.Content}</p>
+    <p>{ props.date }</p>
+    <p>{ props.tag }</p>
+    <p>{ props.content }</p>
   </li>
 )
