@@ -7,16 +7,23 @@ export class AddNoteForm extends Component {
 
     this.state = {
       content: '',
-      tag: ''
+      tag: 'Work'
     }
+  }
+
+  handleInput = (e) => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value
+    });
   }
 
 
   render() {
     return (
       <form>
-        <input type="text" />
-        <select>
+        <input type="text" maxLength="250" name="content" onChange={this.handleInput}/>
+        <select name="tag" onChange={this.handleInput}>
           <option>Work</option>
           <option>Hobby</option>
           <option>Personal</option>
