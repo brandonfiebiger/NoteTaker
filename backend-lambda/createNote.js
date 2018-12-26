@@ -2,15 +2,15 @@
  
 const AWS = require('aws-sdk'),
 	uuid = require('uuid'),
-	documentClient = new AWS.DynamoDB.DocumentClient(); 
+	documentClient = new AWS.DynamoDB.DocumentClient();
  
 exports.createNote = (event, context, callback) => {
 	const params = {
 		Item : {
 			id : uuid.v1(),
-			"Content" : event.Content,
-			"Tag" : event.Tag,
-			"Date": event.Date
+			content : event.content,
+			tag : event.tag,
+			date: event.date
 		},
 		TableName : process.env.TABLE_NAME
 	};
