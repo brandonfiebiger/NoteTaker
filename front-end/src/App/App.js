@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
+import { AddNoteForm } from '../Components/AddNoteForm/AddNoteForm';
+import date from 'date-and-time';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      notes: []
+    }
+  }
 
   componentDidMount() {
     fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes')
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(notes => {
+        this.setState({
+          notes,
+        })
+      })
       .catch(error => console.log(error));
+  }
+
+
+  addNote = (content, tag) => {
+    let now = new Date();
+    now = date.format(now, 'YYYY-MM-DD');
+    console.log(now, content, tag);
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <AddNoteForm addNote={this.addNote}/>
       </div>
     );
   }
