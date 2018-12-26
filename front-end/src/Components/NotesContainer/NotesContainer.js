@@ -9,7 +9,8 @@ export const NotesContainer = props => {
 
   return (
     <main>
-      <Filter />
+      <Filter filterNotes={ props.filterNotes } showAllNotes={ props.showAllNotes }/>
+      {!props.notes.length ? <p>No notes to show</p> : ''}
       <ul>
         { displayNotes }
       </ul>
