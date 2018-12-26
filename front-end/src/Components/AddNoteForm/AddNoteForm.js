@@ -7,7 +7,8 @@ export class AddNoteForm extends Component {
     this.state = {
       content: '',
       tag: 'Work',
-      error: false
+      error: false,
+      success: false
     }
   }
 
@@ -28,7 +29,12 @@ export class AddNoteForm extends Component {
       });
     } else {
       this.props.addNote(content, tag);
+      this.setState({success: true});
+      document.querySelector('form').reset();
     }
+    setTimeout(() => {
+      this.setState({success: false});
+    }, 4000);
   }
 
 
@@ -43,6 +49,7 @@ export class AddNoteForm extends Component {
         </select>
         <button>Add Note</button>
         {this.state.error ? <p>Please fill out all required fields</p>: ''}
+        {this.state.success ? <p>Note taken!</p> : ''}
       </form>
     )
   }
