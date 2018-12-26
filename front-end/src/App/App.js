@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AddNoteForm } from '../Components/AddNoteForm/AddNoteForm';
 import date from 'date-and-time';
 import './App.css';
+import { NotesContainer } from '../Components/NotesContainer/NotesContainer';
 
 class App extends Component {
   constructor() {
@@ -41,12 +42,17 @@ class App extends Component {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.log(error));
+    this.setState({
+      notes: [{Content, Tag, "Date": now}, ...this.state.notes]
+    });
   }
 
   render() {
+    const { notes } = this.state;
     return (
       <div className="App">
-        <AddNoteForm addNote={this.addNote}/>
+        <AddNoteForm addNote={ this.addNote }/>
+        <NotesContainer notes={ notes }/>
       </div>
     );
   }
