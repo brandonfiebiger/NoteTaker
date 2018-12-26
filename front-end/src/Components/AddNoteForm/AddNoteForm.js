@@ -12,7 +12,7 @@ export class AddNoteForm extends Component {
     }
   }
 
-  handleInput = (e) => {
+  handleChange = (e) => {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
@@ -30,7 +30,7 @@ export class AddNoteForm extends Component {
     } else {
       this.props.addNote(content, tag);
       this.setState({success: true});
-      document.querySelector('form').reset();
+      document.querySelector('.AddNoteForm').reset();
     }
     setTimeout(() => {
       this.setState({success: false});
@@ -40,9 +40,9 @@ export class AddNoteForm extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <input type="text" maxLength="250" name="content" onChange={ this.handleInput }/>
-        <select name="tag" onChange={ this.handleInput }>
+      <form onSubmit={ this.handleSubmit } className="AddNoteForm">
+        <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
+        <select name="tag" onChange={ this.handleChange }>
           <option>Work</option>
           <option>Hobby</option>
           <option>Personal</option>

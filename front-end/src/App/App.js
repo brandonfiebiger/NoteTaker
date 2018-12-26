@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AddNoteForm } from '../Components/AddNoteForm/AddNoteForm';
-import date from 'date-and-time';
+import dateFormat from 'date-and-time';
 import './App.css';
 import { NotesContainer } from '../Components/NotesContainer/NotesContainer';
 
@@ -9,31 +9,33 @@ class App extends Component {
     super();
 
     this.state = {
-      notes: []
+      allNotes: [],
+      filteredNotes: [],
+      filtered: false
     }
   }
 
   componentDidMount() {
     fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes')
       .then(response => response.json())
-      .then(notes => {
+      .then(allNotes => {
         this.setState({
-          notes,
+          allNotes,
         })
       })
       .catch(error => console.log(error));
   }
 
 
-  addNote = (Content, Tag) => {
-    let now = new Date();
-    now = date.format(now, 'YYYY-MM-DD');
+  addNote = (content, tag) => {
+    let date = new Date();
+    date = dateFormat.format(date, 'YYYY-MM-DD');
     fetch('https://jcg0fh7yrf.execute-api.us-east-2.amazonaws.com/notes', {
       method: 'POST',
       body: JSON.stringify({
-        Content,
-        Tag,
-        "Date": now
+        content,
+        tag,
+        date
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -43,16 +45,35 @@ class App extends Component {
     .then(data => console.log(data))
     .catch(error => console.log(error));
     this.setState({
-      notes: [{Content, Tag, "Date": now}, ...this.state.notes]
+      allNotes: [{content, tag, date}, ...this.state.allNotes]
     });
   }
 
+  filterNotes = (properties) => {
+    let filteredNotes = this.state.allNotes;
+
+    properties.forEach(property => {
+      console.log(property);
+      if (property.value.length) {
+        filteredNotes = filteredNotes.filter(note => note[property.propertyName] === property.value);
+      }
+    })
+    this.setState({
+      filteredNotes: filteredNotes,
+      filtered: true
+    });
+  }
+
+  showAllNotes = () => {
+    this.setState({filtered: false});
+  }
+
   render() {
-    const { notes } = this.state;
+    const { allNotes, filteredNotes, filtered } = this.state;
     return (
       <div className="App">
         <AddNoteForm addNote={ this.addNote }/>
-        <NotesContainer notes={ notes }/>
+        <NotesContainer notes={ filteredNotes.length || filtered ? filteredNotes : allNotes } filterNotes={this.filterNotes} showAllNotes={this.showAllNotes}/>
       </div>
     );
   }
