@@ -6,30 +6,45 @@ export class Filter extends Component {
     super();
 
     this.state = {
-      Date: "",
-      Tag: ""
+      date: "",
+      tag: "",
+      filtered: false
     }
   }
 
   handleChange = (e) => {
     const { value, name } = e.target;
+    console.log(value);
     this.setState({
       [name]: value,
-      error: false
     });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { date, tag } = this.state;
+    this.props.filterNotes([{propertyName: 'date', value: date}, {propertyName: 'tag', value: tag}]);
+    this.setState({filtered: true})
+  }
+
+  handleShowAll = () => {
+    this.setState({filtered: false});
+    this.props.showAllNotes();
   }
 
 
   render() {
     return (
-      <form>
-        <input type="date" name="Date" onChange={ this.handleChange } />
-        <select name="Tag" onChange={ this.handleChange }>
+      <form onSubmit={ this.handleSubmit }>
+        <input type="date" name="date" onChange={ this.handleChange } />
+        <select name="tag" onChange={ this.handleChange }>
+          <option></option>
           <option>Work</option>
           <option>Hobby</option>
           <option>Personal</option>
         </select>
         <button>Filter Notes</button>
+        {this.state.filtered ? <button onClick={this.handleShowAll}>Show All</button> : ''}
       </form>
     )
   }
