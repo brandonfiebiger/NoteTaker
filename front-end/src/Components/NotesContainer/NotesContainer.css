@@ -1,13 +1,14 @@
 .NotesContainer {
-  height: 80vh
+  height: 100vh;
+  background: #eaeaea;
 }
 
 .notes-list {
   padding: 0;
   list-style-type: none;
-  background: aliceblue;
+  background: #eaeaea;
   width: 80%;
   margin: 0 auto;
   overflow: scroll;
-  height: 100vh;
+  height: 84vh;
 }
