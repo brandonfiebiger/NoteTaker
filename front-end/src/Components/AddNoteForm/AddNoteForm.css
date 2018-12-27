@@ -1,0 +1,26 @@
+.AddNoteForm {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  height: 20rem;
+  justify-content: space-around;
+  border: 1px solid #9e9e9e;
+}
+
+.addNoteFormSection {
+  position: absolute;
+  left: 85rem;
+  width: 28rem;
+  height: auto;
+  transition: transform .3s;
+}
+
+.addNoteFormSection:hover {
+  transform: translateX(-24rem);
+}
+
+.tab {
+  display: inline;
+  float: left;
+}
+
