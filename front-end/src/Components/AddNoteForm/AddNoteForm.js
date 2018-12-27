@@ -9,7 +9,8 @@ export class AddNoteForm extends Component {
       content: '',
       tag: 'Work',
       error: false,
-      success: false
+      success: false,
+      toggled: false
     }
   }
 
@@ -38,14 +39,21 @@ export class AddNoteForm extends Component {
     }, 4000);
   }
 
+  toggleForm = () => {
+    this.setState({
+      toggled: !this.state.toggled
+    });
+  }
+
 
   render() {
     return (
-      <section className="addNoteFormSection">
-        <article className="tab">
-          Add Note!
-        </article>
-        <form onSubmit={ this.handleSubmit } className="AddNoteForm hidden">
+      <section className={this.state.toggled ? "addNoteFormSection toggled" : "addNoteFormSection"}>
+        <a href="#" className="tab" onClick={ this.toggleForm }>
+          <span className="plus-sign">{this.state.toggled ? '-' : '+'}</span>
+        </a>
+        <form onSubmit={ this.handleSubmit } className="AddNoteForm">
+          <h2>Take Some Notes!</h2>
           <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
           <select name="tag" onChange={ this.handleChange }>
             <option>Work</option>
