@@ -1,0 +1,36 @@
+.NoteCard {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: 10rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding: 1.8rem;
+  background: #ffffff;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, .2);
+  transition: transform .5s, box-shadow .5s;
+}
+
+.NoteCard:hover {
+  transform: translateY(-.5rem) scale(1.01) translateX(-.5rem);
+  box-shadow: 15px 9px 9px rgba(0, 0, 0, .2);
+}
+
+.content {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+.note-property {
+  display: inline;
+  margin-right: 2rem;
+}
+
+.note-property span {
+  background: #eaeaea;
+  border-radius: 4px;
+}
