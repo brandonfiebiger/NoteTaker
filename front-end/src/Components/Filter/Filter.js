@@ -30,12 +30,13 @@ export class Filter extends Component {
   handleShowAll = () => {
     this.setState({filtered: false});
     this.props.showAllNotes();
+    document.querySelector('.Filter').reset();
   }
 
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form onSubmit={ this.handleSubmit } className="Filter">
         <input type="date" name="date" onChange={ this.handleChange } />
         <select name="tag" onChange={ this.handleChange }>
           <option></option>
