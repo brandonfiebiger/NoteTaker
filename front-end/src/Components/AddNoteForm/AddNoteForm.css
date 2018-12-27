@@ -3,24 +3,70 @@
   flex-direction: column;
   width: 23rem;
   height: 20rem;
-  justify-content: space-around;
   border: 1px solid #9e9e9e;
+  background: #eaeaea;
+}
+
+.AddNoteForm textarea {
+  height: 5rem;
+  width: 80%;
+  margin: 0 auto;
+  -webkit-appearance: none;
+}
+
+.AddNoteForm section {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.AddNoteForm select {
+  width: 8rem;
+}
+
+.AddNoteForm textarea, select  {
+  margin-bottom: 1rem;
+}
+
+.AddNoteForm button {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .addNoteFormSection {
   position: absolute;
-  left: 85rem;
+  left: 87rem;
+  top: 10rem;
   width: 28rem;
   height: auto;
   transition: transform .3s;
 }
 
-.addNoteFormSection:hover {
-  transform: translateX(-24rem);
+.toggled {
+  transform: translateX(-26rem) scale(1.2);
 }
 
 .tab {
+  width: 3rem;
+  height: 10rem;
+  background: #524649;
   display: inline;
   float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 7px 0 0 7px;
+}
+
+.plus-sign {
+  color: white;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  font-size: 2rem;
+  font-weight: 900;
+  padding-bottom: 1rem;
 }
 

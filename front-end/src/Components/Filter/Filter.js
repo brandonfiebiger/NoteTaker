@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Filter.css';
 
 
 export class Filter extends Component {
@@ -14,7 +15,6 @@ export class Filter extends Component {
 
   handleChange = (e) => {
     const { value, name } = e.target;
-    console.log(value);
     this.setState({
       [name]: value,
     });
@@ -37,13 +37,17 @@ export class Filter extends Component {
   render() {
     return (
       <form onSubmit={ this.handleSubmit } className="Filter">
+        <span>Filter by date:</span>
         <input type="date" name="date" onChange={ this.handleChange } />
-        <select name="tag" onChange={ this.handleChange }>
+        <span>and/or tag:</span>
+        <span className="select-container">
+          <select name="tag" onChange={ this.handleChange }>
           <option></option>
           <option>Work</option>
           <option>Hobby</option>
           <option>Personal</option>
         </select>
+        </span>
         <button>Filter Notes</button>
         {this.state.filtered ? <button onClick={this.handleShowAll}>Show All</button> : ''}
       </form>

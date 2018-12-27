@@ -9,7 +9,8 @@ export class AddNoteForm extends Component {
       content: '',
       tag: 'Work',
       error: false,
-      success: false
+      success: false,
+      toggled: false
     }
   }
 
@@ -24,7 +25,7 @@ export class AddNoteForm extends Component {
   handleSubmit = (e) => {
     const { content, tag } = this.state;
     e.preventDefault();
-    if (!this.state.content.length) {
+    if (!content) {
       this.setState({
         error: true
       });
@@ -32,26 +33,39 @@ export class AddNoteForm extends Component {
       this.props.addNote(content, tag);
       this.setState({success: true});
       document.querySelector('.AddNoteForm').reset();
+      this.setState({
+        content: ''
+      })
     }
     setTimeout(() => {
       this.setState({success: false});
     }, 4000);
   }
 
+  toggleForm = () => {
+    this.setState({
+      toggled: !this.state.toggled
+    });
+  }
+
 
   render() {
     return (
-      <section className="addNoteFormSection">
-        <article className="tab">
-          Add Note!
-        </article>
-        <form onSubmit={ this.handleSubmit } className="AddNoteForm hidden">
-          <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
-          <select name="tag" onChange={ this.handleChange }>
-            <option>Work</option>
-            <option>Hobby</option>
-            <option>Personal</option>
-          </select>
+      <section className={this.state.toggled ? "addNoteFormSection toggled" : "addNoteFormSection"}>
+        <a href="#" className="tab" onClick={ this.toggleForm }>
+          <span className="plus-sign">{this.state.toggled ? '-' : '+'}</span>
+        </a>
+        <form onSubmit={ this.handleSubmit } className="AddNoteForm">
+          <h2>Take Some Notes!</h2>
+          <textarea maxLength="250" name="content" onChange={ this.handleChange } placeholder="Write note here...."/>
+          <section>
+            <span>Tag:</span>
+            <select name="tag" onChange={ this.handleChange }>
+              <option>Work</option>
+              <option>Hobby</option>
+              <option>Personal</option>
+            </select>
+          </section>
           <button>Add Note</button>
           {this.state.error ? <p>Please fill out all required fields</p>: ''}
           {this.state.success ? <p>Note taken!</p> : ''}
