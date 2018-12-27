@@ -14,7 +14,6 @@ export class Filter extends Component {
 
   handleChange = (e) => {
     const { value, name } = e.target;
-    console.log(value);
     this.setState({
       [name]: value,
     });
