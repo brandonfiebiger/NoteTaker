@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { AddNoteForm } from '../Components/AddNoteForm/AddNoteForm';
 import dateFormat from 'date-and-time';
-import './App.css';
 import { NotesContainer } from '../Components/NotesContainer/NotesContainer';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -73,7 +73,7 @@ class App extends Component {
     return (
       <div className="App">
         <AddNoteForm addNote={ this.addNote }/>
-        <NotesContainer notes={ filteredNotes.length || filtered ? filteredNotes : allNotes } filterNotes={this.filterNotes} showAllNotes={this.showAllNotes}/>
+        <NotesContainer notes={ filtered ? filteredNotes : allNotes } filterNotes={this.filterNotes} showAllNotes={this.showAllNotes}/>
       </div>
     );
   }
