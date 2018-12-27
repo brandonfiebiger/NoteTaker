@@ -9,18 +9,38 @@
 
 .addNoteFormSection {
   position: absolute;
-  left: 85rem;
+  left: 87rem;
+  top: 10rem;
   width: 28rem;
   height: auto;
   transition: transform .3s;
 }
 
-.addNoteFormSection:hover {
-  transform: translateX(-24rem);
+.toggled {
+  transform: translateX(-26rem) scale(1.2);
 }
 
 .tab {
+  width: 3rem;
+  height: 10rem;
+  background: orangered;
   display: inline;
   float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 7px;
+}
+
+.plus-sign {
+  color: white;
+  background: black;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  font-size: 2rem;
+  font-weight: 900;
+  padding-bottom: 1rem;
 }
 
