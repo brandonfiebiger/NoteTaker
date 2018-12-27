@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddNoteForm.css';
 
 
 export class AddNoteForm extends Component {
@@ -40,17 +41,22 @@ export class AddNoteForm extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit } className="AddNoteForm">
-        <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
-        <select name="tag" onChange={ this.handleChange }>
-          <option>Work</option>
-          <option>Hobby</option>
-          <option>Personal</option>
-        </select>
-        <button>Add Note</button>
-        {this.state.error ? <p>Please fill out all required fields</p>: ''}
-        {this.state.success ? <p>Note taken!</p> : ''}
-      </form>
+      <section className="addNoteFormSection">
+        <article className="tab">
+          Add Note!
+        </article>
+        <form onSubmit={ this.handleSubmit } className="AddNoteForm hidden">
+          <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
+          <select name="tag" onChange={ this.handleChange }>
+            <option>Work</option>
+            <option>Hobby</option>
+            <option>Personal</option>
+          </select>
+          <button>Add Note</button>
+          {this.state.error ? <p>Please fill out all required fields</p>: ''}
+          {this.state.success ? <p>Note taken!</p> : ''}
+        </form>
+      </section>
     )
   }
 }
