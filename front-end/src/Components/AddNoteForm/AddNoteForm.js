@@ -25,7 +25,7 @@ export class AddNoteForm extends Component {
   handleSubmit = (e) => {
     const { content, tag } = this.state;
     e.preventDefault();
-    if (!this.state.content.length) {
+    if (!content) {
       this.setState({
         error: true
       });
@@ -33,6 +33,9 @@ export class AddNoteForm extends Component {
       this.props.addNote(content, tag);
       this.setState({success: true});
       document.querySelector('.AddNoteForm').reset();
+      this.setState({
+        content: ''
+      })
     }
     setTimeout(() => {
       this.setState({success: false});
@@ -55,11 +58,14 @@ export class AddNoteForm extends Component {
         <form onSubmit={ this.handleSubmit } className="AddNoteForm">
           <h2>Take Some Notes!</h2>
           <textarea maxLength="250" name="content" onChange={ this.handleChange } placeholder="Write note here...."/>
-          <select name="tag" onChange={ this.handleChange }>
-            <option>Work</option>
-            <option>Hobby</option>
-            <option>Personal</option>
-          </select>
+          <section>
+            <span>Tag:</span>
+            <select name="tag" onChange={ this.handleChange }>
+              <option>Work</option>
+              <option>Hobby</option>
+              <option>Personal</option>
+            </select>
+          </section>
           <button>Add Note</button>
           {this.state.error ? <p>Please fill out all required fields</p>: ''}
           {this.state.success ? <p>Note taken!</p> : ''}

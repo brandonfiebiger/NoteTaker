@@ -14,8 +14,24 @@
   -webkit-appearance: none;
 }
 
-.AddNoteForm input, select  {
+.AddNoteForm section {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.AddNoteForm select {
+  width: 8rem;
+}
+
+.AddNoteForm textarea, select  {
   margin-bottom: 1rem;
+}
+
+.AddNoteForm button {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .addNoteFormSection {
@@ -34,7 +50,7 @@
 .tab {
   width: 3rem;
   height: 10rem;
-  background: orangered;
+  background: #524649;
   display: inline;
   float: left;
   display: flex;
@@ -46,7 +62,6 @@
 
 .plus-sign {
   color: white;
-  background: black;
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
