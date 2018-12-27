@@ -1,3 +1,17 @@
-Filter {
-  height: 10vh;
+.Filter {
+  height: 5vh;
+  background: #eaeaea;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.select-container {
+  width: 5rem;
+  border-radius: 5px;
+}
+
+.select-container select {
+  border: none;
+  padding: 5px; 
 }
