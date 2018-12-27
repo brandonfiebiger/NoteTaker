@@ -53,8 +53,7 @@ class App extends Component {
     let filteredNotes = this.state.allNotes;
 
     properties.forEach(property => {
-      console.log(property);
-      if (property.value.length) {
+      if (property.value) {
         filteredNotes = filteredNotes.filter(note => note[property.propertyName] === property.value);
       }
     })
@@ -72,6 +71,9 @@ class App extends Component {
     const { allNotes, filteredNotes, filtered } = this.state;
     return (
       <div className="App">
+        <header>
+          <h1>Note<span className="header-span">Taker</span></h1>
+        </header>
         <AddNoteForm addNote={ this.addNote }/>
         <NotesContainer notes={ filtered ? filteredNotes : allNotes } filterNotes={this.filterNotes} showAllNotes={this.showAllNotes}/>
       </div>
