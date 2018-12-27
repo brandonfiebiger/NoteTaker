@@ -54,7 +54,7 @@ export class AddNoteForm extends Component {
         </a>
         <form onSubmit={ this.handleSubmit } className="AddNoteForm">
           <h2>Take Some Notes!</h2>
-          <input type="text" maxLength="250" name="content" onChange={ this.handleChange }/>
+          <textarea maxLength="250" name="content" onChange={ this.handleChange } placeholder="Write note here...."/>
           <select name="tag" onChange={ this.handleChange }>
             <option>Work</option>
             <option>Hobby</option>
