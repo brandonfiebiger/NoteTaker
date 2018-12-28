@@ -53,5 +53,11 @@ Example Response:
 }
 ```
 
+# Final Result!
+
 ![layout](layout.gif)
+
+![Network on page load](get.gif)
+
+![While filtering](filter.gif)
 
