@@ -64,7 +64,10 @@ class App extends Component {
   }
 
   showAllNotes = () => {
-    this.setState({filtered: false});
+    this.setState({
+      filtered: false,
+      filteredNotes: []
+    });
   }
 
   render() {
