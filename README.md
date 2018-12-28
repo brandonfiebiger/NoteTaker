@@ -49,7 +49,12 @@ Example Response:
 ```
 {
   statusCode: 201,
-  message: "Note successfully created"
+  body: {
+    "id": "59331520-0a67-11e9-b5d8-c329ea63a647",
+    "content": "hello world",
+    "tag": "Work",
+    "date": "2018-04-04"
+  }
 }
 ```
 
