@@ -60,12 +60,16 @@ Example Response:
 
 # Final Result!
 
-Basic Layout:
+## Basic Layout:
 ![layout](layout.gif)
 
-On page load:
+
+
+## On page load:
 ![Network on page load](get.gif)
 
-While filtering
+
+
+## While filtering:
 ![While filtering](filter.gif)
 
