@@ -55,9 +55,12 @@ Example Response:
 
 # Final Result!
 
+Basic Layout:
 ![layout](layout.gif)
 
+On page load:
 ![Network on page load](get.gif)
 
+While filtering
 ![While filtering](filter.gif)
 
