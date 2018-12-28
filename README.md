@@ -2,6 +2,10 @@
 
 Project made with React on the front-end and AWS API Gateway, AWS Lambda and DynamoDB on the backend.
 
+## Site is live!
+
+https://youthful-galileo-3c7fd3.netlify.com/#
+
 ## Notetaker API
 
 ### GET
