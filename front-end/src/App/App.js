@@ -74,8 +74,8 @@ class App extends Component {
         <header>
           <h1>Note<span className="header-span">Taker</span></h1>
         </header>
-        <AddNoteForm addNote={ this.addNote }/>
         <NotesContainer notes={ filtered ? filteredNotes : allNotes } filterNotes={this.filterNotes} showAllNotes={this.showAllNotes}/>
+        <AddNoteForm addNote={ this.addNote }/>
       </div>
     );
   }
