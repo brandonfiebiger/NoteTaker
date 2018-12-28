@@ -53,5 +53,5 @@ Example Response:
 }
 ```
 
-![layout](View 1 Notetaker.gif)
+![layout](layout.gif)
 
