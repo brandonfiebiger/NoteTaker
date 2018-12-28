@@ -1,6 +1,6 @@
 # NoteTaker
 
-Project made with React on the front-end and AWS API Gateway, AWS Lambda and DynamoDB on the backend.
+Project made with React on the front-end and the Serverless.js configuration structure with AWS API Gateway, AWS Lambda and DynamoDB on the backend.
 
 ## Site is live!
 
