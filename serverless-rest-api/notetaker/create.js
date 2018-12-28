@@ -8,7 +8,7 @@ module.exports.create = (event, context, callback) => {
 
   const data = JSON.parse(event.body);
 
-  if (typeof data.content !== 'string') {
+  if (typeof data.content !== 'string' || typeof data.tag !== 'string') {
     console.error('Validation Failed');
     callback(new Error('Couldnt create the note!'));
     return;
@@ -32,8 +32,8 @@ module.exports.create = (event, context, callback) => {
     }
 
     const response = {
-      statusCode: 200,
-      body: JSON.stringify(result.Item),
+      statusCode: 201,
+      body: JSON.stringify(params.Item),
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
