@@ -53,3 +53,5 @@ Example Response:
 }
 ```
 
+![layout](../assets/View 1 Notetaker.gif)
+
